@@ -5,12 +5,8 @@ class htmlTable
 {
     public static function genarateTableFromMultiArray($array)
     {
-<<<<<<< HEAD
         print_r($array);
         $tableGen = '<table border=2>';
-=======
-        $tableGen = '<table border="1"cellpadding="10">';
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
         $tableGen .= '<tr>';
         //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
@@ -26,7 +22,6 @@ class htmlTable
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-<<<<<<< HEAD
                     $id1=$value;
                 } 
                     $tableGen .= '<td>' . $value . '</td>';
@@ -34,13 +29,6 @@ class htmlTable
             $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $id1 . '">edit</a></td>';
             $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id1 . '">delete</a></td>';
             $id1='';
-=======
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
-                } else {
-                    $tableGen .= '<td>' . $value . '</td>';
-                }
-            }
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
             $tableGen .= '</tr>';
         }
         $tableGen .= '</table>';
@@ -61,8 +49,4 @@ class htmlTable
         return $tableGen;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c

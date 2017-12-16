@@ -7,10 +7,7 @@ include_once "autoload.php";
 //put your database credentials here
 include_once "database.php";
 //this starts the program as a static.  Start tracing the program from here following the classes and methods being called
-<<<<<<< HEAD
 //echo 'hi';
-=======
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
 $response = http\processRequest::createResponse();
 //read the notes below
 //To make the final project, you need to add routes, controllers, and the html templates in the "pages" folder.
