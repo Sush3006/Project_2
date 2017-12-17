@@ -7,61 +7,114 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  
-</head>
+  </head> <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 650px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color:  #99ffcc;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color:#99ffcc;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    .glyphicon {
+    height:42px;
+    font-size: 18px;
+}
+    label{
+      width:100px;
+    }
+  </style>
 
-
-<body>
-<center>
-
-    <h3> Details </h3>
-<form action="index.php?page=accounts&action=edit&id=<?php echo $data->id; ?>" method="post" class = "form-inline">
-    
-    <div class = "form-group">
-    <label>First name-</label>
-    <input type="text" class="form-control" name="fname" value="<?php echo $data->fname; ?>"readonly>
-    </div><br><br>
-
-    <div class = "form-group" align="center">
-    <label>Last  name-</label>
-    <input type="text" class="form-control" name="lname" value="<?php echo $data->lname; ?>"readonly>
-    </div><br><br>
-    
-    <div class = "form-group" align="center">
-    <label>E-mail  ID-</label>
-    <input type="text" class="form-control" name="email" value="<?php echo $data->email; ?>"readonly>
-    </div><br><br>
-    
-    <div class = "form-group" align="center">
-    <label>Phone No-</label>
-    <input type="text" class="form-control" name="phone" value="<?php echo $data->phone; ?>"readonly>
-    </div><br><br>
-    
-    <div class = "form-group" align="center">
-    <label>Birthday-</label>
-    <input type="text" class="form-control" name="birthday" value="<?php echo $data->birthday; ?>"readonly>
-    </div><br><br>
-    
-    <div class = "form-group" align="center">
-    <label>Gender-</label>
-    <input type="text" class="form-control" name="gender" value="<?php echo $data->gender; ?>"readonly>
+<body><nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-plus"></span></a>
     </div>
-    <br>
-    <br>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Create Task</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<center>
+ 
+    <h3> Enter Task Details </h3>
     
-    <input type="submit" class="btn btn-primary" value="Edit">
-    <br>
-    <br>
-</form>
+<form action="index.php?page=tasks&action=store&id=" method="post" id="form1" class = "form-inline">
+
+<div class = "form-group">
+<label>Owner Email-</label>
+<input type="text" class="form-control" name="owneremail" value="">
+</div>
+<br><br>
+
+<div class = "form-group">
+<label>Owner ID-</label>
+<input type="text" class="form-control" name="ownerid" value="<?php session_start(); echo $_SESSION["userID"]; ?>">
+</div>
+<br><br>
 
 
-<form action="index.php?page=accounts&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" class="btn btn-primary" form="form1" value="delete">Delete</button>
+<div class = "form-group">
+<label>Created Date-</label>
+<input type="text" class="form-control" name="createddate" value="">
+</div>
+<br><br>
+
+<div class = "form-group">
+<label>Due Date-</label>
+<input type="text" class="form-control" name="duedate" value="">
+</div>
+<br><br>
+
+<div class = "form-group">
+<label>Message-</label>
+<input type="text" class="form-control" name="message" value="">
+</div>
+<br><br>
+
+<div class = "form-group">
+<label>Is Done-</label>
+<input type="text" class="form-control" name="isdone" value="">
+</div>
+<br><br>
+
+<button type="submit" class="btn btn-primary" form="form1" value="create">Create</button>
 </form>
+
 
 </center>
-
-
 <script src="js/scripts.js"></script>
 </body>
 </html>
