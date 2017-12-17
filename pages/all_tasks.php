@@ -27,7 +27,7 @@
     .col-sm-10
     {
       padding-top: 20px;
-      background-color: #ccf2ff;
+      background-color: #b3ffcc;
       height: 100%;
     }
     
@@ -69,6 +69,10 @@
     </div>
   </div>
 </nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-10 text-left"> 
 
 <?php
 $a='';
