@@ -66,18 +66,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-      
-      <li><div>
-        <form action="index.php?page=accounts&action=show" method="POST">
-        <button type="submit" class="glyphicon glyphicon-user">Your Profile</button>
-        </form></div></li>
-        
-        <li><div>
-        <form action="index.php?page=accounts&action=logout" method="POST">
-        <button type="submit" class="glyphicon glyphicon-log-out">Logout</button>
-        </form></div></li>
-      </ul>
     </div>
   </div>
 </nav>
@@ -89,20 +77,7 @@
     <div class="col-sm-8 text-center">
 <body>
 
-<?php
-$text='';
-$text.='<h2>Pending Tasks</h2><br>';
-$text.='<a href="index.php?page=tasks&action=create"><span class="glyphicon glyphicon-plus">Create New Task</span></a>';
-if($data==FALSE){
-  $text.='<br>No records found';
-  $text.='</center>';
-  echo $text;
-}
-else{
-$text.=utility\htmlTable::genarateTableFromMultiArray($data);
-echo $text;
-}
-?>
+<h1><?php echo $data ?></h1>
 
 </div>
 

@@ -1,48 +1,82 @@
 <?php
 namespace database;
-use http\controller;
 abstract class model
 {
-    public function save()
-    {
-        if($this->validate() == FALSE) {
-            echo 'failed validation';
-            exit;
+    public function save(){
+      
+      $result= $this->validate();
+      //echo $result;
+      
+    if($result=='pass'){
+      if ($this->id != '') {
+        $sql = $this->update();
+        } 
+      else {
+        $sql = $this->insert();
+        $INSERT = TRUE;
         }
-        if ($this->id != '') {
-            $sql = $this->update();
-        } else {
-            $sql = $this->insert();
-            $INSERT = TRUE;
+      $db = dbConn::getConnection();
+      $statement = $db->prepare($sql);
+      $statement->execute();
+    }
+    else{
+      echo $result;
+      exit;
+    }
+  }
+    
+    public function validate() {
+      //echo 'in validate';
+      $flag='pass';
+      $modelName = static::$modelName;
+      $tableName = $modelName::getTablename();
+      //echo $tableName;
+      
+      if($tableName =='todos'){
+        $message=$this->message;
+        $isDone=$this->isdone;
+        
+        if(strlen($message)<6){
+          $flag='Message too short ! Enter message of atleast 6 characters';
+          //echo 'Message too short ! Enter message of atleast 6 characters';
         }
-        $db = dbConn::getConnection();
-        $statement = $db->prepare($sql);
-        $array = get_object_vars($this);
-        if ($INSERT == TRUE) {
-            unset($array['id']);
-        }
-        foreach (array_flip($array) as $key => $value) {
-            $statement->bindParam(":$value", $this->$value);
-        }
-        $statement->execute();
-        if ($INSERT == TRUE) {
-            $this->id = $db->lastInsertId();
-        }
-        return $this->id;
-        }
+        if($isDone>=2 or $isDone<0){
+          $flag='IsDone should be boolean';
+          //echo 'IsDone should be boolean';
+            }
+    }
+    return $flag;
+    }
+    
+    public function lastID(){
+      $modelName = static::$modelName;
+      $tableName = $modelName::getTablename();
+      $db = dbConn::getConnection();
+      $sql='select MAX(id) from '.$tableName;
+      //echo $sql;
+      $statement = $db->prepare($sql);
+      $statement->execute();
+      $statement->setFetchMode();
+      $recordsSet =  $statement->fetchAll(\PDO::FETCH_ASSOC);
+      $record=$recordsSet[0];
+      $LastID= $record["MAX(id)"];
+      //echo $LastID;
+      return $LastID+1;
+    }
     private function insert()
     {
+        //echo 'in insert';
+        $id=$this->lastID();
+        $this->id=$id;
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();
         $array = get_object_vars($this);
-        unset($array['id']);
-        $columnString = implode(',', array_flip($array));
-        $valueString = ':' . implode(',:', array_flip($array));
-        $sql = 'INSERT INTO ' . $tableName . ' (' . $columnString . ') VALUES (' . $valueString . ')';
+        $columnString = array_keys($array);
+        $columnString1=implode(',', $columnString);
+        $valueString = "'".implode("','", $array)."'";
+        $sql = 'INSERT INTO ' . $tableName . ' (' . $columnString1 . ') VALUES (' . $valueString . ')';
+        //echo $sql;
         return $sql;
-    }
-    public function validate() {
-        return TRUE;
     }
     private function update()
     {
@@ -53,21 +87,14 @@ abstract class model
         $sql = 'UPDATE ' . $tableName . ' SET ';
         foreach ($array as $key => $value) {
             if (!empty($value)) {
-<<<<<<< HEAD
-            echo '<br>';
-            echo $value;
-=======
-<<<<<<< HEAD
-            echo '<br>';
-            echo $value;
-=======
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
+            //echo '<br>';
+            //echo $value;
                 $sql .= $comma . $key . ' = "' . $value . '"';
                 $comma = ", ";
             }
         }
         $sql .= ' WHERE id=' . $this->id;
+        //echo $sql;
         return $sql;
     }
     public function delete()

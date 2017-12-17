@@ -1,49 +1,42 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-
-    <title>The HTML5 Herald</title>
-    <meta name="description" content="The HTML5 Herald">
-    <meta name="author" content="SitePoint">
-
-    <link rel="stylesheet" href="css/styles.css?v=1.0">
-
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
-    <![endif]-->
+  <title>Task manager</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
 </head>
-
 <body>
 
+      
+      <h1>Welcome</h1>
+      <p>This is website for managing tasks.</p>
+      <hr>  
+      <form action="index.php?page=accounts&action=login" method="POST">
 
-<h1>
-    <?php
-    //this how to print some data;
-    echo $data['site_name'];
-    ?> </h1>
+      <!--<div class="container">-->
+      <h5><b>Username</b></h5>
+      <input type="email" placeholder="Enter Username" name="uname" required><br>
 
-<h1><a href="index.php?page=accounts&action=all">Show All Accounts</a></h1>
-<h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1>
+      <h5><b>Password</b></h5>
+      <input type="password" placeholder="Enter Password" name="psw" required><br><br>
 
-<form action="index.php?page=accounts&action=login" method="POST">
-
-    <div class="container">
-        <label><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="email" required>
-
-        <label><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="password" required>
-
-        <button type="submit">Login</button>
-    </div>
-
-
+      <button type="submit" class="btn btn-primary">Login</button>
+      <!--</div>-->
 </form>
-<h1><a href="index.php?page=accounts&action=register">Register</a></h1>
+	<h5><a href="index.php?page=accounts&action=register">Register</a></h5>
+    </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
 
+<footer class="container-fluid text-center">
+  <p>Web System Development</p>
+</footer>
 
-<script src="js/scripts.js"></script>
 </body>
 </html>

@@ -40,19 +40,14 @@
       .row.content {height:auto;} 
     }
     
-    .glyphicon {
-    height:42px;
-    font-size: 18px;
-}
-    label{
+      label{
       width:100px;
     }
   </style>
 </head>
 
 
-<body text-align:center>
-
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -65,48 +60,54 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      
-      <li><div>
-        <form action="index.php?page=accounts&action=show" method="POST">
-        <button type="submit" class="glyphicon glyphicon-user">Your Profile</button>
-        </form></div></li>
         
-        <li><div>
-        <form action="index.php?page=accounts&action=logout" method="POST">
-        <button type="submit" class="glyphicon glyphicon-log-out">Logout</button>
-        </form></div></li>
       </ul>
+      
     </div>
   </div>
 </nav>
-
+  
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
     </div>
-    <div class="col-sm-8 text-center">
-<body>
+    <div class="col-sm-8 text-center"> 
 
-<?php
-$text='';
-$text.='<h2>Pending Tasks</h2><br>';
-$text.='<a href="index.php?page=tasks&action=create"><span class="glyphicon glyphicon-plus">Create New Task</span></a>';
-if($data==FALSE){
-  $text.='<br>No records found';
-  $text.='</center>';
-  echo $text;
-}
-else{
-$text.=utility\htmlTable::genarateTableFromMultiArray($data);
-echo $text;
-}
-?>
+<h3>Register</h3>
+<form action="index.php?page=accounts&action=store" method="post" id="form1" class = "form-inline">
+    <div class = "form-group" align="center">
+    <label>First name-</label>
+    <input type="text" class="form-control" name="fname" value="" required><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Last name-</label>
+    <input type="text" class="form-control" name="lname" value="" required><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Email ID-</label>
+    <input type="email" class="form-control" name="email" value=""><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Phone No-</label>
+    <input type="text" class="form-control" name="phone" value=""><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Birthday-</label>
+    <input type="text" class="form-control" name="birthday" value=""><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Gender-</label>
+    <input type="text" class="form-control" name="gender" value=""><br>
+    </div><br><br>
+    <div class = "form-group">
+    <label>Password-</label>
+    <input type="password" class="form-control" name="password" value="" required><br>
+    </div><br><br>
+    <button type="submit" class="btn btn-primary" form="form1" value="Submit">Submit</button>
+</form>
 
 </div>
-
-<div class="col-sm-2 sidenav">
+    <div class="col-sm-2 sidenav">
     </div>
   </div>
 </div>
@@ -114,7 +115,6 @@ echo $text;
 <footer class="container-fluid text-center">
   <p>Web System Development</p>
 </footer>
-
 
 <script src="js/scripts.js"></script>
 </body>

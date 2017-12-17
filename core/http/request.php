@@ -6,6 +6,7 @@ class request
     static public function getRequestMethod()
     {
         $request_method = $_SERVER['REQUEST_METHOD'];
+        //echo $request_method;
         return $request_method;
     }
 //this gets determines the page
@@ -34,3 +35,4 @@ class request
         return $action;
     }
 }
+?>

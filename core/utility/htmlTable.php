@@ -5,17 +5,17 @@ class htmlTable
 {
     public static function genarateTableFromMultiArray($array)
     {
-<<<<<<< HEAD
-        print_r($array);
-        $tableGen = '<table border=2>';
-=======
-<<<<<<< HEAD
-        print_r($array);
-        $tableGen = '<table border=2>';
-=======
-        $tableGen = '<table border="1"cellpadding="10">';
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
+        $tableGen = '<!DOCTYPE html>';
+        $tableGen .= '<html lang="en">';
+        $tableGen .= '<head>';
+        $tableGen .= '<meta charset="utf-8">';
+        $tableGen .= '<meta name="viewport" content="width=device-width, initial-scale=1">';
+        $tableGen .= '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">';
+        $tableGen .= '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
+        $tableGen .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>';
+        
+        
+        $tableGen .= '<center><table border="3"  class="table table-striped">';
         $tableGen .= '<tr>';
         //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
@@ -31,30 +31,16 @@ class htmlTable
             $tableGen .= '<tr>';
             foreach ($record as $key => $value) {
                 if ($key == 'id') {
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
                     $id1=$value;
                 } 
                     $tableGen .= '<td>' . $value . '</td>';
             }
-            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $id1 . '">edit</a></td>';
-            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id1 . '">delete</a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $id1 . '"><span class="glyphicon glyphicon-pencil">edit</span></a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id1 . '"> <span class="glyphicon glyphicon-trash">delete</span></a></td>';
             $id1='';
-<<<<<<< HEAD
-=======
-=======
-                    $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $value . '">View</a></td>';
-                } else {
-                    $tableGen .= '<td>' . $value . '</td>';
-                }
-            }
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
             $tableGen .= '</tr>';
         }
-        $tableGen .= '</table>';
+        $tableGen .= '</table></center>';
         return $tableGen;
     }
     public static function generateTableFromOneRecord($innerArray)
@@ -72,12 +58,4 @@ class htmlTable
         return $tableGen;
     }
 }
-<<<<<<< HEAD
 ?>
-=======
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
