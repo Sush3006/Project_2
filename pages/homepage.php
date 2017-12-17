@@ -58,16 +58,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
     </div>
   </div>
@@ -77,7 +74,7 @@
   <div class="row content">
     <div class="col-sm-10 text-left"> 
       
-      <h1>To Do Tasks</h1>
+      <h1> <span class="glyphicon glyphicon-tasks"> </span> Welcome to Todo Task Management Application </h1>
       <hr>  
       <form action="index.php?page=accounts&action=login" method="POST">
 
@@ -88,10 +85,10 @@
       <h5><b>Password</b></h5>
       <input type="password" placeholder="Enter Password" name="psw" required><br><br>
 
-      <button type="submit" class="btn btn-success">Login</button>
+      <button type="submit" class="btn btn-info btn-lg"><span class="glyphicon glyphicon-log-in"></span> Login </button>
       
 </form>
-	<h5><span class="glyphicon glyphicon-arrow-right"></span><a href="index.php?page=accounts&action=register">Register</a></h5>
+	<h5><span class="glyphicon glyphicon-hand-right"></span><a href="index.php?page=accounts&action=register">Register</a></h5>
     
     
   </div>
