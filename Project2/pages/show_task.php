@@ -18,10 +18,6 @@
 <body>
 
 <?php
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
 echo '<br>';
 ?>
 
@@ -36,20 +32,6 @@ Is Done:<input type="text" name="isdone" value="<?php echo $data->isdone;?>"><br
 
 <button type="submit" form="form1" value="save">Save</button>
 </form>
-<<<<<<< HEAD
-=======
-=======
-//this is how you print something  $data contains the record that was selected on the table.
-print_r($data);
-?>
-<form action="index.php?page=tasks&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
-    <button type="submit" form="form1" value="delete">Delete</button>
-</form>
-
-
-
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
 
 <script src="js/scripts.js"></script>
 </body>

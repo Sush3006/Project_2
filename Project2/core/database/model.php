@@ -53,16 +53,8 @@ abstract class model
         $sql = 'UPDATE ' . $tableName . ' SET ';
         foreach ($array as $key => $value) {
             if (!empty($value)) {
-<<<<<<< HEAD
             echo '<br>';
             echo $value;
-=======
-<<<<<<< HEAD
-            echo '<br>';
-            echo $value;
-=======
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
                 $sql .= $comma . $key . ' = "' . $value . '"';
                 $comma = ", ";
             }

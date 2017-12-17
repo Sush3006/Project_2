@@ -1,16 +1,4 @@
 <?php
-<<<<<<< HEAD
-
-ini_set('display_errors', 'On');
-error_reporting(E_ALL);
-
-include_once "autoload.php";
-
-include_once "database.php";
-
-$response = http\processRequest::createResponse();
-
-=======
 //turn on debugging messages
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
@@ -19,10 +7,7 @@ include_once "autoload.php";
 //put your database credentials here
 include_once "database.php";
 //this starts the program as a static.  Start tracing the program from here following the classes and methods being called
-<<<<<<< HEAD
 //echo 'hi';
-=======
->>>>>>> a26d8aa1ca885606943db36fd48a0677f3bb0d6c
 $response = http\processRequest::createResponse();
 //read the notes below
 //To make the final project, you need to add routes, controllers, and the html templates in the "pages" folder.
@@ -65,5 +50,4 @@ $response = http\processRequest::createResponse();
 //for the todos list page you need to make a table that has links to each item.
 //  Like:  index.php?page=todos&action=show&id=1  this would show the to-do item with a link to the edit form.
 //  you could put your delete on the to_do item view or the edit form, the above still applies.
->>>>>>> 61b1682803b2c8566a516671034a0860c342938e
 ?>
