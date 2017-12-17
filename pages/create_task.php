@@ -7,11 +7,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </head>
 
 
-<body text-align:center>
-
+<body>
+<center>
  
     <h3> Enter Task Details </h3>
     
@@ -19,20 +18,20 @@
 
 <div class = "form-group">
 <label>Owner Email-</label>
-<input type="text" class="form-control" name="owneremail" value="<?php session_start(); echo $_SESSION["email"]; ?>">
+<input type="text" class="form-control" name="owneremail" value="">
 </div>
 <br><br>
 
 <div class = "form-group">
 <label>Owner ID-</label>
-<input type="text" class="form-control" name="ownerid" value="<?php echo $_SESSION["userID"]; ?>">
+<input type="text" class="form-control" name="ownerid" value="<?php session_start(); echo $_SESSION["userID"]; ?>">
 </div>
 <br><br>
 
-<?php date_default_timezone_set("America/New_York"); ?>
+
 <div class = "form-group">
 <label>Created Date-</label>
-<input type="text" class="form-control" name="createddate" value="<?php echo date("Y-m-d").' '.date("h:i:sa"); ?>"readonly>
+<input type="text" class="form-control" name="createddate" value="">
 </div>
 <br><br>
 
@@ -57,17 +56,8 @@
 <button type="submit" class="btn btn-primary" form="form1" value="create">Create</button>
 </form>
 
-</div>
 
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
-
+</center>
 <script src="js/scripts.js"></script>
 </body>
 </html>

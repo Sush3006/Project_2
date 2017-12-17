@@ -12,8 +12,9 @@ class accountsController extends http\controller
     //to call the show function the url is index.php?page=task&action=show
     public static function show()
     {
-        $record = accounts::findOne($_REQUEST['id']);
-        self::getTemplate('show_account', $record);
+        session_start();
+        $record = accounts::findOne($_SESSION["userID"]);
+        self::getTemplate('show_accounts', $record);   
     }
     //to call the show function the url is index.php?page=accounts&action=all
     public static function all()
@@ -52,7 +53,7 @@ class accountsController extends http\controller
             //you may want to send the person to a
             // login page or create a session and log them in
             // and then send them to the task list page and a link to create tasks
-            header("Location: index.php?page=accounts&action=all");
+            header("Location: index.php?page=homepage&action=show");
         } else {
             //You can make a template for errors called error.php
             // and load the template here with the error you want to show.
@@ -76,12 +77,13 @@ class accountsController extends http\controller
         $user->birthday = $_POST['birthday'];
         $user->gender = $_POST['gender'];
         $user->save();
-        header("Location: index.php?page=accounts&action=all");
+        self::getTemplate('login_homepage', NULL);
+        
     }
     public static function delete() {
         $record = accounts::findOne($_REQUEST['id']);
         $record->delete();
-        header("Location: index.php?page=accounts&action=all");
+        header("Location: index.php?page=homepage&action=show");
     }
     //this is to login, here is where you find the account and allow login or deny.
     public static function login()
@@ -92,19 +94,27 @@ class accountsController extends http\controller
         //you might want to add something that handles if the password is invalid, you could add a page template and direct to that
         //after you login you can use the header function to forward the user to a page that displays their tasks.
         //        $record = accounts::findUser($_POST['email']);
-        $user = accounts::findUserbyEmail($_REQUEST['email']);
+        $user = accounts::findUserbyEmail($_REQUEST['uname']);
         if ($user == FALSE) {
             echo 'user not found';
         } else {
-            if($user->checkPassword($_POST['password']) == TRUE) {
+            if($user->checkPassword($_POST['psw']) == TRUE) {
                 echo 'login';
                 session_start();
                 $_SESSION["userID"] = $user->id;
+                self::getTemplate('login_homepage', NULL);
                 //forward the user to the show all todos page
-                print_r($_SESSION);
+                //print_r($_SESSION);
             } else {
                 echo 'password does not match';
             }
         }
+    }
+    
+    public static function logout()
+    {
+      session_destroy();
+      $_SESSION=array();
+      header('Location:index.php?page=homepage');
     }
 }

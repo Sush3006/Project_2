@@ -10,7 +10,8 @@
   </head>
 
 
-<body text-align:center>
+<body text-align>
+<center>
 
     <h3> Confirm Task Details </h3>
 
@@ -61,19 +62,9 @@
     <button type="submit" form="form1" class="btn btn-primary" value="delete">Delete</button>
 </form>
 
-</div>
-
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
 
 
-
+</center>
 <script src="js/scripts.js"></script>
 </body>
 </html>

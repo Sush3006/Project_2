@@ -12,18 +12,12 @@
 
 
 <body>
+<center>
 
-&nbsp&nbsp&nbsp<h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1>
-</div>
+<h1><a href="index.php?page=tasks&action=all">Show All Tasks</a></h1>
+<h3><a href="index.php?page=accounts&action=show">Profile</a></h3>
+<h3><a href="index.php?page=accounts&action=logout">Logout</a></h3>
 
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
-
+<center>
 <script src="js/scripts.js"></script>
 </body>

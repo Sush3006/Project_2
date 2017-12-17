@@ -4,10 +4,6 @@ abstract class model
 {
     public function save(){
       
-      $result= $this->validate();
-      //echo $result;
-      
-    if($result=='pass'){
       if ($this->id != '') {
         $sql = $this->update();
         } 
@@ -19,36 +15,9 @@ abstract class model
       $statement = $db->prepare($sql);
       $statement->execute();
     }
-    else{
-      echo $result;
-      exit;
-    }
-  }
     
-    public function validate() {
-      //echo 'in validate';
-      $flag='pass';
-      $modelName = static::$modelName;
-      $tableName = $modelName::getTablename();
-      //echo $tableName;
-      
-      if($tableName =='todos'){
-        $message=$this->message;
-        $isDone=$this->isdone;
-        
-        if(strlen($message)<6){
-          $flag='Message too short ! Enter message of atleast 6 characters';
-          //echo 'Message too short ! Enter message of atleast 6 characters';
-        }
-        if($isDone>=2 or $isDone<0){
-          $flag='IsDone should be boolean';
-          //echo 'IsDone should be boolean';
-            }
-    }
-    return $flag;
-    }
     
-    public function lastID(){
+    public function getLastID(){
       $modelName = static::$modelName;
       $tableName = $modelName::getTablename();
       $db = dbConn::getConnection();
@@ -66,7 +35,7 @@ abstract class model
     private function insert()
     {
         //echo 'in insert';
-        $id=$this->lastID();
+        $id=$this->getLastID();
         $this->id=$id;
         $modelName = static::$modelName;
         $tableName = $modelName::getTablename();

@@ -11,7 +11,8 @@
 </head>
 
 
-<body text-align:center>
+<body>
+<center>
 
     <h3> Details </h3>
 <form action="index.php?page=accounts&action=edit&id=<?php echo $data->id; ?>" method="post" class = "form-inline">
@@ -57,17 +58,8 @@
 <form action="index.php?page=accounts&action=delete&id=<?php echo $data->id; ?> " method="post" id="form1">
     <button type="submit" class="btn btn-primary" form="form1" value="delete">Delete</button>
 </form>
-</div>
 
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
-
+</center>
 
 
 <script src="js/scripts.js"></script>

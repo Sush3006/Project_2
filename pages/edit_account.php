@@ -11,8 +11,8 @@
 </head>
 
 
-<body text-align:center>
-
+<body>
+<center>
     <h3> Edit Details </h3>
 
 <form action="index.php?page=accounts&action=save&id=<?php echo $data->id; ?>" method="post" class = "form-inline">
@@ -49,18 +49,7 @@
     <input type="submit" class="btn btn-primary" value="SAVE">
 </form>
 
-</div>
-
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
-
-
+</center>
 <script src="js/scripts.js"></script>
 </body>
 </html>

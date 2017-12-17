@@ -11,7 +11,8 @@
 </head>
 
 
-<body text-align:center>
+<body>
+<center>
  
     <h3> Edit Details </h3>
 <form action="index.php?page=tasks&action=store&id=<?php echo $data->id; ?>" method="post" class = "form-inline" id="form1">
@@ -32,12 +33,12 @@
 
 <div class = "form-group">
 <label>Created Date-</label>
-<input type="text" class="form-control" name="createddate" value="<?php echo $data->createddate;?>" readonly>
+<input type="text" class="form-control" name="createddate" value="<?php echo $data->createddate;?>">
 </div><br><br>
 
 <div class = "form-group">
 <label>Due Date-</label>
-<input type="text" class="form-control" name="duedate" value="<?php echo $data->duedate;?>" readonly>
+<input type="text" class="form-control" name="duedate" value="<?php echo $data->duedate;?>">
 </div><br><br>
 
 <div class = "form-group">
@@ -52,17 +53,8 @@
 
 <button type="submit" class="btn btn-primary" form="form1" value="save">Save</button>
 </form>
-</div>
 
-<div class="col-sm-2 sidenav">
-    </div>
-  </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Web System Development</p>
-</footer>
-
+</center>
 
 
 <script src="js/scripts.js"></script>

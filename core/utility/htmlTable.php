@@ -15,7 +15,7 @@ class htmlTable
         $tableGen .= '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script></head>';
         
         
-        $tableGen .= '<center><table border="3"  class="table table-striped">';
+        $tableGen .= '<center><table border="3" class="table table-hover">';
         $tableGen .= '<tr>';
         //this grabs the first element of the array so we can extract the field headings for the table
         $fieldHeadings = $array[0];
@@ -35,8 +35,8 @@ class htmlTable
                 } 
                     $tableGen .= '<td>' . $value . '</td>';
             }
-            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $id1 . '"><span class="glyphicon glyphicon-pencil">edit</span></a></td>';
-            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id1 . '"> <span class="glyphicon glyphicon-trash">delete</span></a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=show&id=' . $id1 . '">edit</a></td>';
+            $tableGen .= '<td><a href="index.php?page=' . $referingPage . '&action=edit&id=' . $id1 . '">delete</a></td>';
             $id1='';
             $tableGen .= '</tr>';
         }

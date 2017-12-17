@@ -3,7 +3,7 @@ class routes
 {
     public static function getRoutes()
     {
-        //bellow adds routes to your program, routes match the URL and request method with the controller and method.
+         //bellow adds routes to your program, routes match the URL and request method with the controller and method.
         //You need to follow this pattern to add new URLS
         //You should improve this function by making functions to create routes in a factory. I will look for this when grading
         //I also use object for the route because it has data and it's easier to access.
@@ -32,7 +32,7 @@ class routes
         $routes[] = $route;
         
         $route = new route();
-        $route->http_method = 'POST';
+        $route->http_method = 'GET';
         $route->action = 'logout';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
@@ -69,7 +69,7 @@ class routes
         $routes[] = $route;*/
         //GET METHOD index.php?page=accounts&action=show
         $route = new route();
-        $route->http_method = 'POST';
+        $route->http_method = 'GET';
         $route->action = 'show';
         $route->page = 'accounts';
         $route->controller = 'accountsController';
@@ -181,4 +181,3 @@ class route
     public $controller;
 }
 ?>
-© 2017 GitHub, Inc.
