@@ -8,37 +8,30 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+     
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
     
-    /* Set gray background color and 100% height */
+    .row.content {height: 650px}
+    
+    
     .sidenav {
       padding-top: 20px;
-      background-color: #fff000;
+      background-color: #f1f1f1;
       height: 100%;
     }
     
-    .col-sm-10
-    {
-      padding-top: 20px;
-      background-color: #b3ffcc ;
-      height: 100%;
-    }
     
-    /* Set black background color, white text and some padding */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
     }
     
-    /* On small screens, set height to 'auto' for sidenav and grid */
+    
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
@@ -46,10 +39,20 @@
       }
       .row.content {height:auto;} 
     }
+    
+    .glyphicon {
+    height:42px;
+    font-size: 18px;
+}
+    label{
+      width:100px;
+    }
   </style>
+</head>
 
 
-<body>
+<body text-align:center>
+
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -58,43 +61,52 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li class="active"><a href="index.php?page=accounts&action=back1">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      
+      <li><div>
+        <form action="index.php?page=accounts&action=show" method="POST">
+        <button type="submit" class="glyphicon glyphicon-user">Your Profile</button>
+        </form></div></li>
+        
+        <li><div>
+        <form action="index.php?page=accounts&action=logout" method="POST">
+        <button type="submit" class="glyphicon glyphicon-log-out">Logout</button>
+        </form></div></li>
       </ul>
     </div>
   </div>
 </nav>
+
 <div class="container-fluid text-center">    
   <div class="row content">
-    <div class="col-sm-10 text-left"> 
-    
-<center>
- 
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-center"> 
     <h3> Enter Task Details </h3>
     
 <form action="index.php?page=tasks&action=store&id=" method="post" id="form1" class = "form-inline">
 
 <div class = "form-group">
 <label>Owner Email-</label>
-<input type="text" class="form-control" name="owneremail" value="">
+<input type="text" class="form-control" name="owneremail" value="<?php session_start(); echo $_SESSION["email"]; ?>">
 </div>
 <br><br>
 
 <div class = "form-group">
 <label>Owner ID-</label>
-<input type="text" class="form-control" name="ownerid" value="<?php session_start(); echo $_SESSION["userID"]; ?>">
+<input type="text" class="form-control" name="ownerid" value="<?php echo $_SESSION["userID"]; ?>" readonly>
 </div>
 <br><br>
 
-
+<?php date_default_timezone_set("America/New_York"); ?>
 <div class = "form-group">
 <label>Created Date-</label>
-<input type="text" class="form-control" name="createddate" value="">
+<input type="text" class="form-control" name="createddate" value="<?php echo date("Y-m-d").' '.date("h:i:sa"); ?>"readonly>
 </div>
 <br><br>
 
@@ -119,8 +131,17 @@
 <button type="submit" class="btn btn-primary" form="form1" value="create">Create</button>
 </form>
 
+</div>
 
-</center>
+<div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <p>Web System Development</p>
+</footer>
+
 <script src="js/scripts.js"></script>
 </body>
 </html>

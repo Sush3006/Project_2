@@ -58,17 +58,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-home"></span></a>
+      <a class="navbar-brand" href="#"><span class="glyphicon glyphicon-edit"></span></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        
+        <li class="active"><a href="#"> EDIT </a></li>
+        
       </ul>
     </div>
   </div>
 </nav>
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-10 text-left"> 
   
 <center>
     <h3> Edit Task Details </h3>

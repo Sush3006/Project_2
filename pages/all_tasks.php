@@ -77,7 +77,7 @@
 <?php
 $a='';
 $a.='<center>';
-$a.='<h2>Pending Tasks</h2><br>';
+$a.='<h2>Tasks</h2><br>';
 $a.='<a href="index.php?page=tasks&action=create">Create New Task</a>';
 if($data==FALSE){
   $a.='<br>No records found';
