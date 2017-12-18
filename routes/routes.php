@@ -40,6 +40,7 @@ class routes
         $routes[] = $route;
         
         
+        
         //This is an examole of the post for tasks to show a task
         //GET METHOD index.php?page=tasks&action=show
         $route = new route();

@@ -52,18 +52,41 @@
 
 
 <body text-align:center>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      //<a class="navbar-brand" href="index.php?page=accounts&action=login"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+       
+       
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-10 text-left">
 
 <h3><a href="index.php?page=accounts&action=logout">Logout</a></h3>
+
 
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
     </div>
     <div class="col-sm-8 text-center"> 
-    <h3> Details </h3>
+    <h3> Details </h3>  
 <form action="index.php?page=accounts&action=edit&id=<?php echo $data->id; ?>" method="post" class = "form-inline">
     
-    <div class = "form-group">
+    <div class = "form-group" align ="center">
     <label>First name-</label>
     <input type="text" class="form-control" name="fname" value="<?php echo $data->fname; ?>"readonly>
     </div><br><br>

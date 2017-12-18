@@ -73,6 +73,7 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-10 text-left"> 
+    <h3><a href="index.php?page=accounts&action=logout">Logout</a></h3>
 
 <?php
 $a='';
